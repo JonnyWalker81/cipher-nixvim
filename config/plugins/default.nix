@@ -34,5 +34,9 @@
     ./lsp/lspsaga.nix
 
     ./lang/go.nix
+    ./lang/nix.nix
+    ./lang/rust.nix
+    ./lang/shell.nix
+    ./lang/typescript.nix
   ];
 }
