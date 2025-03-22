@@ -77,6 +77,10 @@
           action = "find_files hidden=true";
           options.desc = "Find project files";
         };
+        "<leader>bb" = {
+          action = "buffers";
+          options.desc = "Buffers";
+        };
         "<leader>/" = {
           action = "live_grep";
           options.desc = "Grep (root dir)";
@@ -140,4 +144,22 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>sd";
+      action.__raw = ''
+        function()
+              require('telescope.builtin').live_grep {
+                hidden = true,
+                cwd = vim.fn.expand('%:p:h')
+              }
+            end
+      '';
+      options = {
+        desc = "[S]earch Files in Current Directory";
+      };
+    }
+  ];
 }

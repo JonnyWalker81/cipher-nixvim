@@ -27,6 +27,7 @@
 
     ./editor/whichkey.nix
     ./editor/yazi.nix
+    ./editor/oil.nix
 
     ./treesitter/treesitter.nix
     ./treesitter/treesitter-textobjects.nix
