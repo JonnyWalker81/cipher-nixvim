@@ -28,6 +28,9 @@
     ./editor/whichkey.nix
     ./editor/yazi.nix
 
+    ./treesitter/treesitter.nix
+    ./treesitter/treesitter-textobjects.nix
+
     ./lsp/trouble.nix
     ./lsp/lsp.nix
     ./lsp/conform.nix
