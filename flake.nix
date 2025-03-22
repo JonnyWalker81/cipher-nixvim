@@ -7,6 +7,14 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";
 
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+
+      # Only need unstable until the lpeg fix hits mainline, probably
+      # not very long... can safely switch back for 23.11.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     blink-cmp = {
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,9 +32,12 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
+        overlays = [
+          inputs.neovim-nightly-overlay.overlays.default
+        ];
         nixvimLib = nixvim.lib.${system};
         pkgs = import nixpkgs {
-          inherit system;
+          inherit system overlays;
           config.allowUnfree = true;
         };
         nixvim' = nixvim.legacyPackages.${system};
@@ -40,6 +51,7 @@
           } // import ./lib { inherit pkgs; };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
+
       in
       {
         checks = {
