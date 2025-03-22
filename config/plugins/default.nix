@@ -39,8 +39,10 @@
 
     ./lang/go.nix
     ./lang/nix.nix
+    ./lang/ocaml.nix
     ./lang/rust.nix
     ./lang/shell.nix
     ./lang/typescript.nix
+    ./lang/zig.nix
   ];
 }
