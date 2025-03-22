@@ -19,7 +19,7 @@
     ./ui/alpha.nix
     ./ui/toggleterm.nix
     ./ui/ufo.nix
-    # ./ui/colorizer.nix
+    ./ui/colorizer.nix
 
     ./telescope
 
