@@ -4,6 +4,7 @@
     windows-nvim
     nvzone-minty
   ];
+
   extraConfigLua = # lua
     ''
       vim.o.winwidth = 10
