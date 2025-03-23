@@ -66,7 +66,7 @@
       # Reduce which-key timeout to 250s
       timeoutlen = 250;
 
-      scrolloff = 8; # Will never have less than 8 characters as you scroll down
+      scrolloff = 999; # Will never have less than 8 characters as you scroll down
       mouse = "a"; # Mouse
 
       # Set encoding type

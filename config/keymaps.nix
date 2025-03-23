@@ -240,6 +240,14 @@
       action = "\"_d";
       options.desc = "Delete to void register";
     }
+    {
+      mode = [
+        "n"
+      ];
+      key = "C-b";
+      action = "<cmd>cmp.mapping.scroll_docs(-4)";
+      options.desc = "Scroll up";
+    }
   ];
   extraConfigLua = ''
     function ToggleLineNumber()

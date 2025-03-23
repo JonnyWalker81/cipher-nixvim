@@ -3,6 +3,7 @@
     ./theme
 
     ./ai/copilot.nix
+    ./ai/supermaven.nix
 
     ./completion/blink.nix
     ./completion/cmp.nix
