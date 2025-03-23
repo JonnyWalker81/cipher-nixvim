@@ -25,6 +25,7 @@
     ./telescope
 
     ./git/gitsigns.nix
+    ./git/neogit.nix
 
     ./editor/whichkey.nix
     ./editor/yazi.nix
