@@ -82,7 +82,7 @@
           options.desc = "Buffers";
         };
         "<leader>/" = {
-          action = "live_grep";
+          action = "live_grep hidden=true";
           options.desc = "Grep (root dir)";
         };
         "<leader>f:" = {
