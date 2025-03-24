@@ -20,6 +20,8 @@
 
     lsp-signature.enable = true;
     lsp-lines.enable = true;
+
+    lsp-format.enable = true;
   };
 
   keymaps = [
@@ -28,6 +30,16 @@
       key = "<leader>cl";
       action = "<cmd>LspInfo<cr>";
       options.desc = "Lsp Info";
+    }
+    {
+      mode = "n";
+      key = "<leader>lf";
+      action = ":lua vim.lsp.buf.format()<CR>";
+      #    lua = true;
+      options = {
+        silent = true;
+        desc = "Format";
+      };
     }
   ];
 }

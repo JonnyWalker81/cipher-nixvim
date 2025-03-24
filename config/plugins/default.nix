@@ -30,6 +30,7 @@
     ./editor/whichkey.nix
     ./editor/yazi.nix
     ./editor/oil.nix
+    ./editor/spider.nix
 
     ./treesitter/treesitter.nix
     ./treesitter/treesitter-textobjects.nix
@@ -38,12 +39,15 @@
     ./lsp/lsp.nix
     ./lsp/conform.nix
     ./lsp/lspsaga.nix
+    ./lsp/none-ls.nix
 
     ./lang/go.nix
+    ./lang/hcl.nix
     ./lang/nix.nix
     ./lang/ocaml.nix
     ./lang/rust.nix
     ./lang/shell.nix
+    ./lang/terraform.nix
     ./lang/typescript.nix
     ./lang/zig.nix
   ];
