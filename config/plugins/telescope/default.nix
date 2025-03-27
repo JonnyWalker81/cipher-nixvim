@@ -161,5 +161,21 @@
         desc = "[S]earch Files in Current Directory";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>:";
+      action = "<cmd>Telescope commands<cr>";
+      options = {
+        desc = "Commands";
+      };
+    }
+    {
+      mode = "n";
+      key = "gD";
+      action = "<cmd>lua require('telescope.builtin').lsp_references{}<cr>";
+      options = {
+        desc = "Lsp References";
+      };
+    }
   ];
 }

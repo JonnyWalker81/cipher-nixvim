@@ -24,9 +24,11 @@
 
     ./telescope
 
+    ./git/blame.nix
     ./git/gitsigns.nix
     ./git/neogit.nix
 
+    # ./editor/attempt.nix
     ./editor/whichkey.nix
     ./editor/yazi.nix
     ./editor/oil.nix
@@ -39,7 +41,6 @@
     ./lsp/lsp.nix
     ./lsp/conform.nix
     ./lsp/lspsaga.nix
-    ./lsp/none-ls.nix
 
     ./lang/go.nix
     ./lang/hcl.nix

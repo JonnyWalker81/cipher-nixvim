@@ -22,6 +22,7 @@
       };
       formatting = {
         terraform_fmt.enable = true;
+        goimports.enable = true;
         # alejandra.enable = true;
         # stylua.enable = true;
         # shfmt.enable = true;

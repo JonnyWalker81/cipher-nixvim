@@ -129,15 +129,15 @@
         silent = true;
       };
     }
-    {
-      mode = "n";
-      key = "gD";
-      action = "<cmd>:Lspsaga finder<CR>";
-      options = {
-        desc = "Find References";
-        silent = true;
-      };
-    }
+    # {
+    #   mode = "n";
+    #   key = "gD";
+    #   action = "<cmd>:Lspsaga finder<CR>";
+    #   options = {
+    #     desc = "Find References";
+    #     silent = true;
+    #   };
+    # }
     {
       mode = "n";
       key = "gt";
