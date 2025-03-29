@@ -26,6 +26,7 @@
 
     ./git/blame.nix
     ./git/gitsigns.nix
+    ./git/octo.nix
     ./git/neogit.nix
 
     # ./editor/attempt.nix
@@ -44,12 +45,14 @@
 
     ./lang/go.nix
     ./lang/hcl.nix
+    ./lang/json.nix
     ./lang/nix.nix
     ./lang/ocaml.nix
     ./lang/rust.nix
     ./lang/shell.nix
     ./lang/terraform.nix
     ./lang/typescript.nix
+    ./lang/yaml.nix
     ./lang/zig.nix
   ];
 }

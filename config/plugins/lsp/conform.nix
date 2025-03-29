@@ -3,9 +3,13 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
-      format_on_save = {
-        lspFallback = true;
+      # format_on_save = {
+      #   lspFallback = true;
+      #   timeoutMs = 500;
+      # };
+      format_after_save = {
         timeoutMs = 500;
+        lspFallback = true;
       };
       formatters_by_ft = {
         # Use the "_" filetype to run formatters on filetypes that don't have other formatters configured.

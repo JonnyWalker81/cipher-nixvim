@@ -1,5 +1,6 @@
 {
   globals.mapleader = " ";
+  globals.maplocalleader = ",";
 
   keymaps = [
     # Windows
@@ -247,6 +248,70 @@
       key = "C-b";
       action = "<cmd>cmp.mapping.scroll_docs(-4)";
       options.desc = "Scroll up";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<C-j>";
+      action = "<cmd>:wincmd j<cr>";
+      options.desc = "Move to window below";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<C-h>";
+      action = "<cmd>:wincmd h<cr>";
+      options.desc = "Move to window left";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<C-k>";
+      action = "<cmd>:wincmd k<cr>";
+      options.desc = "Move to window up";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<C-l>";
+      action = "<cmd>:wincmd l<cr>";
+      options.desc = "Move to window right";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<leader>wv";
+      action = "<cmd>:vsplit<cr>";
+      options.desc = "Vertical split";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<leader>ws";
+      action = "<cmd>:split<cr>";
+      options.desc = "Horizontal split";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<leader>wc";
+      action = "<cmd>:close<cr>";
+      options.desc = "Close window";
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "<leader>ww";
+      action = "<C-w>w";
+      options.desc = "Move to next window";
     }
   ];
   extraConfigLua = ''

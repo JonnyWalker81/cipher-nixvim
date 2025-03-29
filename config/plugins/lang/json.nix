@@ -1,12 +1,18 @@
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+{
   plugins = {
     conform-nvim = {
       enable = true;
       settings = {
-        formatters_by_ft.go = [ "goimports" ];
+        formatters_by_ft.json = [ "prettier" ];
       };
     };
-    lsp.servers.gopls.enable = true;
     # none-ls.sources.formatting.goimports.enable = true;
   };
 }

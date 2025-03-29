@@ -11,7 +11,10 @@
     # offering improved performance and flexibility.
     luaLoader.enable = true;
 
-    clipboard.providers.wl-copy.enable = true;
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
 
     opts = {
       virtualedit = "block"; # Allow cursor to move where there is no text in visual block mode
