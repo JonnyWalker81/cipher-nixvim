@@ -13,6 +13,7 @@
     ./luasnip
 
     ./util/mini.nix
+    ./util/dadbod.nix
 
     ./ui/bufferline.nix
     ./ui/lualine.nix
@@ -29,10 +30,12 @@
     ./git/octo.nix
     ./git/neogit.nix
 
-    # ./editor/attempt.nix
+    ./editor/flash.nix
+    ./editor/harpoon.nix
     ./editor/whichkey.nix
     ./editor/yazi.nix
     ./editor/oil.nix
+    ./editor/undotree.nix
     ./editor/spider.nix
 
     ./treesitter/treesitter.nix
