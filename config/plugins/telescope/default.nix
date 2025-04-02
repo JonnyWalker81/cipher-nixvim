@@ -10,7 +10,12 @@
       enable = true;
       highlightTheme = "Catppuccin Macchiato";
       extensions = {
-        fzf-native.enable = true;
+        fzf-native = {
+          enable = true;
+          override_generic_sorter = true;
+          override_file_sorter = true;
+          case_mode = "smart_case";
+        };
         ui-select = {
           enable = true;
           settings = {
@@ -34,6 +39,15 @@
           "^data/"
           "%.ipynb"
         ];
+
+        pickers = {
+          colorscheme = {
+            enable_preview = true;
+          };
+          # find_files = {
+          #   theme = "ivy";
+          # };
+        };
 
         mappings = {
           i = {

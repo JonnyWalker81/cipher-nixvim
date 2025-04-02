@@ -108,6 +108,12 @@
         -- o.guifont = "BlexMono Nerd Font Mono:h14:Medium:i"
         -- o.guifont = "Liga SFMono Nerd Font:b:h15"
       end
+
+      vim.api.nvim_create_autocmd("TextYankPost", {
+            callback = function()
+                vim.highlight.on_yank()
+            end,
+      })
     '';
   };
 }
