@@ -12,8 +12,6 @@
       extensions = {
         fzf-native = {
           enable = true;
-          override_generic_sorter = true;
-          override_file_sorter = true;
         };
         ui-select = {
           enable = true;
