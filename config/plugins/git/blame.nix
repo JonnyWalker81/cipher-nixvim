@@ -9,4 +9,8 @@
   plugins.gitblame = {
     enable = true;
   };
+
+  extraConfigLua = ''
+    require('gitblame').toggle()
+  '';
 }
