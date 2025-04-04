@@ -30,6 +30,7 @@
     ./git/octo.nix
     ./git/neogit.nix
 
+    ./editor/diagnostics.nix
     ./editor/flash.nix
     ./editor/harpoon.nix
     ./editor/whichkey.nix

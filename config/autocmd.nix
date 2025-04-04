@@ -8,17 +8,22 @@
 
   autoCmd = [
     # highlight Text on Yank
+    # {
+    #   group = "highlight_yank";
+    #   event = "TextYankPost";
+    #   pattern = "*";
+    #   callback = {
+    #     __raw = "
+    #     function()
+    #       vim.highlight.on_yank()
+    #     end
+    #   ";
+    #   };
+    # }
     {
-      group = "highlight_yank";
       event = "TextYankPost";
       pattern = "*";
-      callback = {
-        __raw = "
-        function()
-          vim.highlight.on_yank()
-        end
-      ";
-      };
+      command = "lua vim.highlight.on_yank{timeout=500}";
     }
     {
       group = "indentscope";
