@@ -36,12 +36,13 @@
         {
           type = "button";
           val = "  Find File";
-          on_press.raw = "require('telescope.builtin').find_files";
+          # on_press.raw = "require('telescope.builtin').find_files";
+          on_press.raw = "<cmd>lua Snacks.picker.files({hidden = true})<cr>";
           opts = {
             keymap = [
               "n"
               "f"
-              ":Telescope find_files <CR>"
+              "<cmd>lua Snacks.picker.files({hidden = true})<cr>"
               {
                 noremap = true;
                 silent = true;
@@ -86,12 +87,14 @@
         {
           type = "button";
           val = "󰈚  Recent Files";
-          on_press.raw = "require('telescope.builtin').oldfiles";
+          # on_press.raw = "require('telescope.builtin').oldfiles";
+          on_press.raw = "<cmd>lua Snacks.picker.recent()<cr>";
           opts = {
             keymap = [
               "n"
               "r"
-              ":Telescope oldfiles <CR>"
+              # "require('telescope.builtin').oldfiles"
+              "<cmd>lua Snacks.picker.recent()<cr>"
               {
                 noremap = true;
                 silent = true;
