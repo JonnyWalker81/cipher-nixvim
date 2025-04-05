@@ -37,7 +37,10 @@
     ./editor/yazi.nix
     ./editor/oil.nix
     ./editor/undotree.nix
+    ./editor/spectre.nix
     ./editor/spider.nix
+
+    ./mini
 
     ./treesitter/treesitter.nix
     ./treesitter/treesitter-textobjects.nix
@@ -58,5 +61,7 @@
     ./lang/typescript.nix
     ./lang/yaml.nix
     ./lang/zig.nix
+
+    ./snacks
   ];
 }
