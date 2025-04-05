@@ -33,12 +33,14 @@
     ./editor/diagnostics.nix
     ./editor/flash.nix
     ./editor/harpoon.nix
+    ./editor/lzn.nix
     ./editor/whichkey.nix
     ./editor/yazi.nix
     ./editor/oil.nix
     ./editor/undotree.nix
     ./editor/spectre.nix
     ./editor/spider.nix
+    ./editor/yanky.nix
 
     ./mini
 
