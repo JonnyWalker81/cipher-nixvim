@@ -38,6 +38,7 @@
         image.enabled = true;
         indent.enabled = true;
         scroll.enabled = true;
+        scope.enabled = true;
         statuscolumn = {
           enabled = true;
 

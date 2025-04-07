@@ -1,4 +1,9 @@
 {
+  lib,
+  config,
+  ...
+}:
+{
   imports = [
     ./theme
 
@@ -41,6 +46,7 @@
     ./editor/spectre.nix
     ./editor/spider.nix
     ./editor/yanky.nix
+    ./editor/wordmotion.nix
 
     ./mini
 
@@ -66,4 +72,6 @@
 
     ./snacks
   ];
+
+  colorschemes.enable = lib.mkDefault true;
 }

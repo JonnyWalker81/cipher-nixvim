@@ -42,36 +42,59 @@
       };
     };
 
-    lsp.servers = {
-      svelte.enable = true;
+    lsp = {
+      servers = {
+        svelte.enable = true;
 
-      eslint = {
-        enable = true;
-        filetypes = [
-          "javascript"
-          "javascriptreact"
-          "javascript.jsx"
-          "typescript"
-          "typescriptreact"
-          "typescript.tsx"
-          "vue"
-          "html"
-          "markdown"
-          "json"
-          "jsonc"
-          "yaml"
-          "toml"
-          "xml"
-          "gql"
-          "graphql"
-          "svelte"
-          "css"
-          "less"
-          "scss"
-          "pcss"
-          "postcss"
-        ];
+        eslint = {
+          enable = true;
+          filetypes = [
+            "javascript"
+            "javascriptreact"
+            "javascript.jsx"
+            "typescript"
+            "typescriptreact"
+            "typescript.tsx"
+            "vue"
+            "html"
+            "markdown"
+            "json"
+            "jsonc"
+            "yaml"
+            "toml"
+            "xml"
+            "gql"
+            "graphql"
+            "svelte"
+            "css"
+            "less"
+            "scss"
+            "pcss"
+            "postcss"
+          ];
+        };
+
+        html = {
+          enable = true;
+          cmd = [
+            "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server"
+            "--stdio"
+          ];
+        };
       };
+
+      enabledServers = [
+        {
+          name = "emmet_language_server";
+          extraOptions = {
+            cmd = [
+              (lib.getExe pkgs.emmet-language-server)
+              "--stdio"
+            ];
+            filetypes = [ "html" ];
+          };
+        }
+      ];
     };
 
     ts-autotag.enable = true;

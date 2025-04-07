@@ -180,13 +180,13 @@
         desc = "Commands";
       };
     }
-    {
-      mode = "n";
-      key = "gD";
-      action = "<cmd>lua require('telescope.builtin').lsp_references{}<cr>";
-      options = {
-        desc = "Lsp References";
-      };
-    }
+    # {
+    #   mode = "n";
+    #   key = "gD";
+    #   action = "<cmd>lua require('telescope.builtin').lsp_references{}<cr>";
+    #   options = {
+    #     desc = "Lsp References";
+    #   };
+    # }
   ];
 }

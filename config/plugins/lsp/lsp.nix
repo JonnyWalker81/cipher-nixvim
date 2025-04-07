@@ -12,7 +12,7 @@
       };
 
       keymaps.lspBuf = {
-        "<c-k>" = "signature_help";
+        # "<c-k>" = "signature_help";
         "gi" = "implementation";
       };
     };

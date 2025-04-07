@@ -18,6 +18,12 @@
           "trim_whitespace"
           "trim_newlines"
         ];
+        html = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          timeout_ms = 2000;
+          stop_after_first = true;
+        };
       };
       formatters = {
         _ = {
@@ -26,6 +32,8 @@
         squeeze_blanks = {
           command = lib.getExe' pkgs.coreutils "cat";
         };
+        prettierd.command = lib.getExe pkgs.prettierd;
+        prettier.command = lib.getExe pkgs.nodePackages.prettier;
       };
     };
   };
