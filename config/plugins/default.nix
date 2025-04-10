@@ -35,6 +35,7 @@
     ./git/octo.nix
     ./git/neogit.nix
 
+    ./editor/avante.nix
     ./editor/diagnostics.nix
     ./editor/flash.nix
     ./editor/harpoon.nix

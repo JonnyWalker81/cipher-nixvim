@@ -7,10 +7,26 @@
       #   lspFallback = true;
       #   timeoutMs = 500;
       # };
-      format_after_save = {
-        timeoutMs = 500;
-        lspFallback = true;
-      };
+      # format_after_save = {
+      #   timeoutMs = 500;
+      #   lspFallback = true;
+      # };
+      format_on_save = ''
+        function(bufnr)
+            local filetype = vim.bo[bufnr].filetype
+            if filetype == "html" then
+              return { timeout_ms = 1000, lsp_fallback = true }
+            end
+          end
+      '';
+      format_after_save = ''
+        function(bufnr)
+            local filetype = vim.bo[bufnr].filetype
+            if filetype ~= "html" then
+              return { timeout_ms = 1000, lsp_fallback = true }
+            end
+          end
+      '';
       formatters_by_ft = {
         # Use the "_" filetype to run formatters on filetypes that don't have other formatters configured.
         "_" = [
@@ -21,7 +37,7 @@
         html = {
           __unkeyed-1 = "prettierd";
           __unkeyed-2 = "prettier";
-          timeout_ms = 2000;
+          # timeout_ms = 500;
           stop_after_first = true;
         };
       };

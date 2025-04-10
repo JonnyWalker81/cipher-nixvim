@@ -239,7 +239,7 @@
           {
             mode = "n";
             key = "<leader>bb";
-            action = ''<cmd>lua Snacks.picker.buffers()<cr>'';
+            action = ''<cmd>lua Snacks.picker.buffers({ sort_lastused = true })<cr>'';
             options = {
               desc = "Find buffers";
             };

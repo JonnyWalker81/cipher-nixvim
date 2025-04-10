@@ -7,6 +7,10 @@
   imports = [
     # ./base16.nix
     ./catppuccin.nix
+    ./cyberdream.nix
+    ./kanagawa.nix
+    ./modus.nix
+    ./nightfox.nix
     ./rose-pine.nix
     ./tokyonight.nix
   ];
@@ -16,9 +20,13 @@
   };
   config = lib.mkIf config.colorschemes.enable {
     # base16.enable = lib.mkDefault false;
-    # catppuccin.enable = lib.mkDefault true;
+    catppuccin.enable = lib.mkDefault true;
     # rose-pine.enable = lib.mkDefault false;
-    tokyonight.enable = lib.mkDefault true;
+    # tokyonight.enable = lib.mkDefault true;
+    # nightfox.enable = lib.mkDefault true;
+    # modus.enable = lib.mkDefault true;
+    # kanagawa.enable = lib.mkDefault true;
+    # cyberdream.enable = lib.mkDefault true;
   };
 
   # colorschemes = {
