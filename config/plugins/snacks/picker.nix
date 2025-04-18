@@ -276,14 +276,14 @@
               desc = "Find quickfix";
             };
           }
-          # {
-          #   mode = "n";
-          #   key = "gd";
-          #   action = ''<cmd>lua Snacks.picker.lsp_definitions()<cr>'';
-          #   options = {
-          #     desc = "Goto Definition";
-          #   };
-          # }
+          {
+            mode = "n";
+            key = "gd";
+            action = ''<cmd>lua Snacks.picker.lsp_definitions()<cr>'';
+            options = {
+              desc = "Goto Definition";
+            };
+          }
           {
             mode = "n";
             key = "<leader>li";

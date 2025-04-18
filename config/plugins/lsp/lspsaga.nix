@@ -120,15 +120,15 @@
         silent = true;
       };
     }
-    {
-      mode = "n";
-      key = "gd";
-      action = "<cmd>Lspsaga goto_definition<CR>";
-      options = {
-        desc = "Goto Definition";
-        silent = true;
-      };
-    }
+    # {
+    #   mode = "n";
+    #   key = "gd";
+    #   action = "<cmd>Lspsaga goto_definition<CR>";
+    #   options = {
+    #     desc = "Goto Definition";
+    #     silent = true;
+    #   };
+    # }
     # {
     #   mode = "n";
     #   key = "gD";
