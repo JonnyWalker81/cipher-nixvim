@@ -7,6 +7,6 @@
 
 {
   plugins.octo = {
-    enable = true;
+    enable = false;
   };
 }
