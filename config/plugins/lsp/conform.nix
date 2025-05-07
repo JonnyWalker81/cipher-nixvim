@@ -3,6 +3,7 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
+      default_format_opts.lsp_format = "prefer";
       # format_on_save = {
       #   lspFallback = true;
       #   timeoutMs = 500;
@@ -15,18 +16,24 @@
         function(bufnr)
             local filetype = vim.bo[bufnr].filetype
             if filetype == "html" then
-              return { timeout_ms = 1000, lsp_fallback = true }
+              return { timeoutMs = 1000, lspFallback = true }
+            else
+              return { timeoutMs = 500, lspFallback = true }
             end
           end
       '';
+
       format_after_save = ''
         function(bufnr)
             local filetype = vim.bo[bufnr].filetype
             if filetype ~= "html" then
-              return { timeout_ms = 1000, lsp_fallback = true }
+              return { timeoutMs = 1000, lspFallback = true }
+            else
+              return { timeoutMs = 500, lspFallback = true }
             end
           end
       '';
+
       formatters_by_ft = {
         # Use the "_" filetype to run formatters on filetypes that don't have other formatters configured.
         "_" = [
@@ -35,29 +42,29 @@
           "trim_newlines"
         ];
 
-        html = {
-          __unkeyed-1 = "prettierd";
-          __unkeyed-2 = "prettier";
-          # timeout_ms = 500;
-          stop_after_first = true;
-        };
+        # html = {
+        #   __unkeyed-1 = "prettierd";
+        #   __unkeyed-2 = "prettier";
+        #   # timeout_ms = 500;
+        #   stop_after_first = true;
+        # };
 
-        typescript = {
-          __unkeyed-1 = "prettierd";
-          __unkeyed-2 = "prettier";
-          stop_after_first = true;
-        };
+        # typescript = {
+        #   __unkeyed-1 = "prettierd";
+        #   __unkeyed-2 = "prettier";
+        #   stop_after_first = true;
+        # };
       };
-      formatters = {
-        _ = {
-          command = "${pkgs.gawk}/bin/gawk";
-        };
-        squeeze_blanks = {
-          command = lib.getExe' pkgs.coreutils "cat";
-        };
-        prettierd.command = lib.getExe pkgs.prettierd;
-        prettier.command = lib.getExe pkgs.nodePackages.prettier;
-      };
+      # formatters = {
+      #   _ = {
+      #     command = "${pkgs.gawk}/bin/gawk";
+      #   };
+      #   squeeze_blanks = {
+      #     command = lib.getExe' pkgs.coreutils "cat";
+      #   };
+      #   prettierd.command = lib.getExe pkgs.prettierd;
+      #   prettier.command = lib.getExe pkgs.nodePackages.prettier;
+      # };
     };
   };
 

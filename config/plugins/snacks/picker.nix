@@ -36,6 +36,10 @@
               },
             }
           '';
+          matcher = {
+            frecency = true;
+          };
+
           # layouts = {
           #   select = {
           #     layout = {
