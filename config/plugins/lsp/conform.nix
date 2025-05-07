@@ -3,7 +3,7 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
-      default_format_opts.lsp_format = "prefer";
+      # default_format_opts.lsp_format = "prefer";
       # format_on_save = {
       #   lspFallback = true;
       #   timeoutMs = 500;
