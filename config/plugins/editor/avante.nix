@@ -23,13 +23,13 @@
       };
 
       settings = {
-        provider = "openai";
-        openai = {
-          # api_key = builtins.getEnv "OPENAI_API_KEY";
-          model = "gpt-4";
-          temperature = 0.7;
-          max_tokens = 1024;
-        };
+        provider = "copilot";
+        # openai = {
+        #   # api_key = builtins.getEnv "OPENAI_API_KEY";
+        #   model = "gpt-4";
+        #   temperature = 0.7;
+        #   max_tokens = 1024;
+        # };
         mappings = {
           files = {
             add_current = "<leader>a.";
