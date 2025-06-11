@@ -30,9 +30,20 @@
         #   temperature = 0.7;
         #   max_tokens = 1024;
         # };
+        behavior = {
+          auto_set_keymaps = true;
+        };
+
         mappings = {
           files = {
             add_current = "<leader>a.";
+          };
+
+          diff = {
+            theirs = "<leader>at"; # accept AI change
+            ours = "<leader>ao"; # keep mine
+            next = "gn";
+            prev = "gN";
           };
         };
       };
