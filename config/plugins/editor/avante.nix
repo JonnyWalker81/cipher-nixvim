@@ -32,7 +32,7 @@
         # };
         behavior = {
           auto_set_keymaps = true;
-          auto_approve_tool_permissions = false;
+          auto_approve_tool_permissions = true;
         };
 
         mappings = {
