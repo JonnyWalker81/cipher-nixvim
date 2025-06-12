@@ -35,7 +35,6 @@
     ./git/octo.nix
     ./git/neogit.nix
 
-    ./editor/avante.nix
     ./editor/diagnostics.nix
     ./editor/flash.nix
     ./editor/harpoon.nix
@@ -72,6 +71,8 @@
     ./lang/zig.nix
 
     ./snacks
+
+    ./editor/avante.nix
   ];
 
   colorschemes.enable = lib.mkDefault true;
