@@ -40,8 +40,8 @@
           };
 
           diff = {
-            theirs = "<leader>at"; # accept AI change
-            ours = "<leader>ao"; # keep mine
+            theirs = "ct"; # accept AI change
+            ours = "co"; # keep mine
             next = "gn";
             prev = "gN";
           };
