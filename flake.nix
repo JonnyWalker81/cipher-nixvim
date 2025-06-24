@@ -33,7 +33,7 @@
       system:
       let
         overlays = [
-          inputs.neovim-nightly-overlay.overlays.default
+          # inputs.neovim-nightly-overlay.overlays.default
         ];
         nixvimLib = nixvim.lib.${system};
         pkgs = import nixpkgs {
