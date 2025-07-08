@@ -46,13 +46,13 @@
         end
       '';
       
-      -- Keep file size limits for safety
+      # Keep file size limits for safety
       preview = {
-        filesize_limit = 0.5;  -- MB
+        filesize_limit = 0.5;  # MB
       };
     };
     
-    -- Remove the complete preview disable
+    # Remove the complete preview disable
     pickers = {
       find_files = {
         previewer.__raw = ''require("telescope.config").values.file_previewer'';
