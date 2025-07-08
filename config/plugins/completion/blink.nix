@@ -85,12 +85,12 @@
           };
           keymap = {
             preset = "enter";
-            "<C-k>" = [
-              "select_prev"
+            "<C-n>" = [
+              "select_next"
               "fallback"
             ];
-            "<C-j>" = [
-              "select_next"
+            "<C-p>" = [
+              "select_prev"
               "fallback"
             ];
             "<C-Up>" = [

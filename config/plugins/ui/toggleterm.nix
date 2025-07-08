@@ -77,5 +77,31 @@
       action = "<cmd>wincmd j<cr>";
       options.desc = "Go to Down window";
     }
+    
+    # Add Ctrl+hjkl navigation in terminal mode
+    {
+      mode = "t";
+      key = "<C-h>";
+      action = "<C-\\><C-n><C-w>h";
+      options.desc = "Go to Left window from terminal";
+    }
+    {
+      mode = "t";
+      key = "<C-j>";
+      action = "<C-\\><C-n><C-w>j";
+      options.desc = "Go to Down window from terminal";
+    }
+    {
+      mode = "t";
+      key = "<C-k>";
+      action = "<C-\\><C-n><C-w>k";
+      options.desc = "Go to Up window from terminal";
+    }
+    {
+      mode = "t";
+      key = "<C-l>";
+      action = "<C-\\><C-n><C-w>l";
+      options.desc = "Go to Right window from terminal";
+    }
   ];
 }

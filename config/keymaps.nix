@@ -3,33 +3,33 @@
   globals.maplocalleader = ",";
 
   keymaps = [
-    # Windows
+    # Windows navigation with Ctrl+hjkl
     {
       mode = "n";
-      key = "<C-Up>";
-      action = "<C-w>k";
-      options.desc = "Move To Window Up";
-    }
-
-    {
-      mode = "n";
-      key = "<C-Down>";
-      action = "<C-w>j";
-      options.desc = "Move To Window Down";
-    }
-
-    {
-      mode = "n";
-      key = "<C-Left>";
+      key = "<C-h>";
       action = "<C-w>h";
-      options.desc = "Move To Window Left";
+      options.desc = "Move to window left";
     }
 
     {
       mode = "n";
-      key = "<C-Right>";
+      key = "<C-j>";
+      action = "<C-w>j";
+      options.desc = "Move to window down";
+    }
+
+    {
+      mode = "n";
+      key = "<C-k>";
+      action = "<C-w>k";
+      options.desc = "Move to window up";
+    }
+
+    {
+      mode = "n";
+      key = "<C-l>";
       action = "<C-w>l";
-      options.desc = "Move To Window Right";
+      options.desc = "Move to window right";
     }
 
     {
@@ -240,46 +240,6 @@
       key = "<leader>D";
       action = "\"_d";
       options.desc = "Delete to void register";
-    }
-    {
-      mode = [
-        "n"
-      ];
-      key = "C-b";
-      action = "<cmd>cmp.mapping.scroll_docs(-4)";
-      options.desc = "Scroll up";
-    }
-    {
-      mode = [
-        "n"
-      ];
-      key = "<C-j>";
-      action = "<cmd>:wincmd j<cr>";
-      options.desc = "Move to window below";
-    }
-    {
-      mode = [
-        "n"
-      ];
-      key = "<C-h>";
-      action = "<cmd>:wincmd h<cr>";
-      options.desc = "Move to window left";
-    }
-    {
-      mode = [
-        "n"
-      ];
-      key = "<C-k>";
-      action = "<cmd>:wincmd k<cr>";
-      options.desc = "Move to window up";
-    }
-    {
-      mode = [
-        "n"
-      ];
-      key = "<C-l>";
-      action = "<cmd>:wincmd l<cr>";
-      options.desc = "Move to window right";
     }
     {
       mode = [
