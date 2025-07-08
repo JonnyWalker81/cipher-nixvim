@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./conform-all-languages.nix  # Comprehensive formatter configuration
+  ];
+
   plugins = {
     lsp = {
       enable = true;
