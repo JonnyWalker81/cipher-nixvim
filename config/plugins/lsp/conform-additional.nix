@@ -2,8 +2,8 @@
 { pkgs, lib, ... }:
 {
   plugins.conform-nvim.settings = {
-    # Only add formatters for languages that don't already have them
-    formatters_by_ft = lib.mkDefault {
+    # Add formatters for all languages, enhancing existing ones
+    formatters_by_ft = {
       # C/C++
       c = [ "clang-format" ];
       cpp = [ "clang-format" ];
@@ -39,10 +39,8 @@
       # Make
       make = [ "trim_whitespace" ];
       cmake = [ "cmake_format" ];
-    };
-    
-    # Enhance JavaScript/TypeScript formatters (add prettier as fallback)
-    formatters_by_ft = lib.mkAfter {
+      
+      # Enhance JavaScript/TypeScript formatters (override typescript.nix)
       javascript = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
       javascriptreact = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
       typescript = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
