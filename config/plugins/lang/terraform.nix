@@ -6,10 +6,6 @@
 }:
 
 {
-  imports = [
-    ./terraform-fix.nix
-  ];
-
   plugins = {
     conform-nvim.settings = {
       formatters_by_ft = {
