@@ -1,6 +1,6 @@
 {
   imports = [
-    ./conform-all-languages.nix  # Comprehensive formatter configuration
+    ./conform-additional.nix  # Additional formatter configuration
   ];
 
   plugins = {
