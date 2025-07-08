@@ -39,6 +39,12 @@
           matcher = {
             frecency = true;
           };
+          debug = {
+            scores = true;
+            leaks = true;
+            files = true;
+            proc = true;
+          };
 
           # layouts = {
           #   select = {
