@@ -266,14 +266,16 @@
               desc = "Find buffers";
             };
           }
-          {
-            mode = "n";
-            key = "<leader><leader>";
-            action = ''<cmd>lua Snacks.picker.files({hidden = true})<cr>'';
-            options = {
-              desc = "Find files";
-            };
-          }
+          # DISABLED: This causes malloc crash when typing "x"
+          # Use telescope with <leader><leader> instead
+          # {
+          #   mode = "n";
+          #   key = "<leader><leader>";
+          #   action = ''<cmd>lua Snacks.picker.files({hidden = true})<cr>'';
+          #   options = {
+          #     desc = "Find files";
+          #   };
+          # }
           {
             mode = "n";
             key = "<leader>fm";

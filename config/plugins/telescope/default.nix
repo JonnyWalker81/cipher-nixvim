@@ -114,6 +114,11 @@
           action = "find_files hidden=true";
           options.desc = "Find project files";
         };
+        # Add <leader><leader> as alternative to avoid snacks picker crash
+        "<leader><leader>" = {
+          action = "find_files hidden=true";
+          options.desc = "Find files (safe alternative)";
+        };
         "<leader>bb" = {
           action = "buffers";
           options.desc = "Buffers";
