@@ -2,28 +2,22 @@
 { config, lib, pkgs, ... }:
 {
   # Disable Haskell in treesitter
-  plugins.treesitter = {
-    settings = {
-      # Ensure Haskell parser is NOT installed
-      ensure_installed = lib.mkForce (
-        builtins.filter (lang: lang != "haskell") 
-        (config.plugins.treesitter.settings.ensure_installed or [])
-      );
-      
-      # Disable highlighting for Haskell
-      highlight.disable = lib.mkForce (langs: 
-        if builtins.isList langs then 
-          langs ++ ["haskell"]
-        else if builtins.isFunction langs then
-          (lang: langs lang || lang == "haskell")
-        else
-          ["haskell"]
-      );
-      
-      # Disable all treesitter modules for Haskell
-      indent.disable = ["haskell"];
-      incremental_selection.disable = ["haskell"];
-    };
+  plugins.treesitter.settings = {
+    # Disable highlighting for Haskell - merge with existing function
+    highlight.disable = lib.mkForce ''
+      function(lang, bufnr)
+        -- Always disable for Haskell
+        if lang == "haskell" then
+          return true
+        end
+        -- Keep existing logic for large files
+        return vim.api.nvim_buf_line_count(bufnr) > 10000
+      end
+    '';
+    
+    # Disable all treesitter modules for Haskell
+    indent.disable = ["haskell"];
+    incremental_selection.disable = ["haskell"];
   };
 
   # Prevent Haskell filetype from being set
@@ -120,7 +114,11 @@
   # Remove any Haskell-specific keybindings
   keymaps = lib.mkAfter (
     builtins.filter (keymap: 
-      !(keymap.action or "" |> builtins.match ".*[Hh]askell.*" |> x: x != null)
+      let
+        action = keymap.action or "";
+        hasHaskell = builtins.match ".*[Hh]askell.*" action;
+      in
+        hasHaskell == null
     ) (config.keymaps or [])
   );
 }
