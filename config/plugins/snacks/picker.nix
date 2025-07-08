@@ -12,6 +12,18 @@
         # Need to pass raw to get around being stripped by nixvim
         # Currently, fzf-lua feels better in every way
         picker = {
+          # Add logging to help debug malloc crash
+          on_error.__raw = ''
+            function(err)
+              vim.notify("Snacks picker error: " .. tostring(err), vim.log.levels.ERROR)
+              local log = io.open("/tmp/snacks-picker-error.log", "a")
+              if log then
+                log:write(os.date("%Y-%m-%d %H:%M:%S") .. " - " .. tostring(err) .. "\n")
+                log:write(debug.traceback() .. "\n\n")
+                log:close()
+              end
+            end
+          '';
           layouts.default.__raw = ''
             {
               reverse = true,

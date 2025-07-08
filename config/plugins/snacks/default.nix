@@ -17,6 +17,7 @@
     ./scratch.nix
     # ./profiler.nix
     ./zen.nix
+    ./fix-module-loading.nix
   ];
 
   extraPackages = with pkgs; [
