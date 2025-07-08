@@ -1,6 +1,20 @@
 {
   plugins.gitsigns = {
     enable = true;
+    
+    lazyLoad = {
+      enable = true;
+      settings = {
+        event = [ "BufReadPre" "BufNewFile" ];
+        cond.__raw = ''
+          function()
+            local git_dir = vim.fn.finddir('.git', vim.fn.expand('%:p:h') .. ';')
+            return git_dir ~= ""
+          end
+        '';
+      };
+    };
+    
     settings = {
       trouble = true;
       current_line_blame = false;

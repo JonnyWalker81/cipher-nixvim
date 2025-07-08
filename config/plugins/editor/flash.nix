@@ -1,7 +1,9 @@
 {
   plugins.flash = {
     enable = true;
-    labels = "rsthnaio";
+    settings = {
+      labels = "rsthnaio";
+    };
   };
 
   keymaps = [

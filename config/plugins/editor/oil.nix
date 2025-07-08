@@ -2,6 +2,17 @@
 {
   plugins.oil = {
     enable = true;
+    
+    lazyLoad = {
+      enable = true;
+      settings = {
+        cmd = [ "Oil" ];
+        keys = [
+          { __unkeyed-1 = "<leader>ff"; desc = "File explorer"; }
+          { __unkeyed-1 = "-"; desc = "Parent directory"; }
+        ];
+      };
+    };
 
     settings = {
       view_options = {

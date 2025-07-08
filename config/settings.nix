@@ -10,6 +10,7 @@
     # feature that enhances the way Neovim loads and executes Lua modules,
     # offering improved performance and flexibility.
     luaLoader.enable = true;
+    
 
     clipboard = {
       register = "unnamedplus";
@@ -85,6 +86,24 @@
             local opt = vim.opt
             local g = vim.g
             local o = vim.o
+            
+            -- Neovim 0.10+ features
+            -- Enable new fold expression from treesitter
+            vim.opt.foldmethod = "expr"
+            vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.opt.foldlevel = 99
+            vim.opt.foldlevelstart = 99
+            vim.opt.foldenable = true
+            
+            -- Enable inlay hints globally (Neovim 0.10+)
+            vim.api.nvim_create_autocmd("LspAttach", {
+              callback = function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if client and client.server_capabilities.inlayHintProvider then
+                  vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                end
+              end,
+            })
               -- Neovide
             if g.neovide then
               -- Neovide options

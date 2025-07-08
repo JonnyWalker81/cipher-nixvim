@@ -4,6 +4,14 @@
   config = {
     plugins.noice = {
       enable = true;
+      
+      lazyLoad = {
+        enable = true;
+        settings = {
+          event = [ "VeryLazy" "CmdlineEnter" ];
+        };
+      };
+      
       notify = {
         enabled = false;
       };

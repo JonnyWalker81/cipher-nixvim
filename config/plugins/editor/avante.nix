@@ -21,6 +21,13 @@
         #   })
         # ];
       };
+      
+      lazyLoad = {
+        enable = lib.mkDefault true;
+        settings = {
+          cmd = [ "AvanteAsk" "AvanteBuild" "AvanteEdit" "AvanteRefresh" "AvanteSwitchProvider" "AvanteChat" "AvanteToggle" "AvanteClear" "AvanteShowRepoMap" ];
+        };
+      };
 
       settings = {
         provider = "copilot";
@@ -62,9 +69,69 @@
   keymaps = lib.optionals config.plugins.avante.enable [
     {
       mode = "n";
+      key = "<leader>aa";
+      action = "<CMD>AvanteAsk<CR>";
+      options.desc = "avante: ask";
+    }
+    {
+      mode = "v";
+      key = "<leader>aa";
+      action = "<CMD>AvanteAsk<CR>";
+      options.desc = "avante: ask";
+    }
+    {
+      mode = "n";
+      key = "<leader>ae";
+      action = "<CMD>AvanteEdit<CR>";
+      options.desc = "avante: edit";
+    }
+    {
+      mode = "v";
+      key = "<leader>ae";
+      action = "<CMD>AvanteEdit<CR>";
+      options.desc = "avante: edit selection";
+    }
+    {
+      mode = "n";
+      key = "<leader>ar";
+      action = "<CMD>AvanteRefresh<CR>";
+      options.desc = "avante: refresh";
+    }
+    {
+      mode = "n";
+      key = "<leader>at";
+      action = "<CMD>AvanteToggle<CR>";
+      options.desc = "avante: toggle";
+    }
+    {
+      mode = "n";
       key = "<leader>ac";
       action = "<CMD>AvanteClear<CR>";
       options.desc = "avante: clear";
+    }
+    {
+      mode = "n";
+      key = "<leader>ab";
+      action = "<CMD>AvanteBuild<CR>";
+      options.desc = "avante: build project";
+    }
+    {
+      mode = "n";
+      key = "<leader>as";
+      action = "<CMD>AvanteSwitchProvider<CR>";
+      options.desc = "avante: switch provider";
+    }
+    {
+      mode = "n";
+      key = "<leader>aS";
+      action = "<CMD>AvanteShowRepoMap<CR>";
+      options.desc = "avante: show repo map";
+    }
+    {
+      mode = "n";
+      key = "<leader>aC";
+      action = "<CMD>AvanteChat<CR>";
+      options.desc = "avante: chat";
     }
   ];
 }

@@ -11,11 +11,8 @@
     ./ai/supermaven.nix
 
     ./completion/blink.nix
-    ./completion/cmp.nix
     ./completion/friendly-snippets.nix
     ./completion/lspkind.nix
-
-    ./luasnip
 
     ./util/mini.nix
     ./util/dadbod.nix
@@ -56,7 +53,7 @@
     ./lsp/trouble.nix
     ./lsp/lsp.nix
     ./lsp/conform.nix
-    ./lsp/lspsaga.nix
+    ./lsp/native-lsp-ui.nix
 
     ./lang/go.nix
     ./lang/hcl.nix

@@ -9,6 +9,16 @@
   plugins = {
     neogit = {
       enable = true;
+      
+      lazyLoad = {
+        enable = true;
+        settings = {
+          cmd = [ "Neogit" ];
+          keys = [
+            { __unkeyed-1 = "<leader>gg"; desc = "Neogit"; }
+          ];
+        };
+      };
     };
   };
 

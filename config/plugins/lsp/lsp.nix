@@ -3,6 +3,32 @@
     lsp = {
       enable = true;
       inlayHints = true;
+      capabilities = ''
+        capabilities = vim.tbl_deep_extend(
+          "force",
+          capabilities,
+          {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,
+                  resolveSupport = {
+                    properties = {
+                      "documentation",
+                      "detail",
+                      "additionalTextEdits",
+                    },
+                  },
+                },
+              },
+              foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true,
+              },
+            },
+          }
+        )
+      '';
 
       servers.typos_lsp = {
         enable = true;

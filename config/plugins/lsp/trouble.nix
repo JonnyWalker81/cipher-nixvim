@@ -2,6 +2,21 @@
   plugins = {
     trouble = {
       enable = true;
+      
+      lazyLoad = {
+        enable = true;
+        settings = {
+          cmd = [ "Trouble" ];
+          keys = [
+            { __unkeyed-1 = "<leader>xd"; desc = "Diagnostics"; }
+            { __unkeyed-1 = "<leader>xD"; desc = "Buffer diagnostics"; }
+            { __unkeyed-1 = "<leader>xl"; desc = "Location list"; }
+            { __unkeyed-1 = "<leader>xq"; desc = "Quickfix"; }
+            { __unkeyed-1 = "<leader>xt"; desc = "Todo"; }
+          ];
+        };
+      };
+      
       settings = {
         auto_close = true;
         modes = {

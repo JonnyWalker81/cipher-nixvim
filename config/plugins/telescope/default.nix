@@ -9,6 +9,32 @@
     telescope = {
       enable = true;
       highlightTheme = "Catppuccin Macchiato";
+      
+      lazyLoad = {
+        enable = true;
+        settings = {
+          cmd = [ "Telescope" ];
+          keys = [
+            { __unkeyed-1 = "<leader><space>"; desc = "Find files"; }
+            { __unkeyed-1 = "<leader>/"; desc = "Grep search"; }
+            { __unkeyed-1 = "<leader>bb"; desc = "Buffers"; }
+            { __unkeyed-1 = "<leader>fr"; desc = "Recent files"; }
+            { __unkeyed-1 = "<leader>fg"; desc = "Find git files"; }
+            { __unkeyed-1 = "<leader>fy"; desc = "Yank history"; }
+            { __unkeyed-1 = "<leader>fc"; desc = "Colorscheme"; }
+            { __unkeyed-1 = "<leader>fk"; desc = "Keymaps"; }
+            { __unkeyed-1 = "<leader>gc"; desc = "Git commits"; }
+            { __unkeyed-1 = "<leader>gb"; desc = "Git branches"; }
+            { __unkeyed-1 = "<leader>gs"; desc = "Git status"; }
+            { __unkeyed-1 = "<leader>gS"; desc = "Git stash"; }
+            { __unkeyed-1 = "<leader>ff"; desc = "Find files"; }
+            { __unkeyed-1 = "<leader>fg"; desc = "Live grep"; }
+            { __unkeyed-1 = "<leader>fb"; desc = "Buffers"; }
+            { __unkeyed-1 = "<leader>fh"; desc = "Help tags"; }
+            { __unkeyed-1 = "<leader>fd"; desc = "Diagnostics"; }
+          ];
+        };
+      };
       extensions = {
         fzf-native = {
           enable = true;

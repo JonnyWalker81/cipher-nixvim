@@ -46,7 +46,7 @@
         "t"
         "n"
       ];
-      key = "<C-Left>";
+      key = "<M-Left>";
       action = "<cmd>wincmd h<cr>";
       options.desc = "Go to Left window";
     }
@@ -55,7 +55,7 @@
         "t"
         "n"
       ];
-      key = "<C-Right>";
+      key = "<M-Right>";
       action = "<cmd>wincmd l<cr>";
       options.desc = "Go to Right window";
     }
@@ -64,7 +64,7 @@
         "t"
         "n"
       ];
-      key = "<C-Up>";
+      key = "<M-Up>";
       action = "<cmd>wincmd k<cr>";
       options.desc = "Go to Up window";
     }
@@ -73,7 +73,7 @@
         "t"
         "n"
       ];
-      key = "<C-Down>";
+      key = "<M-Down>";
       action = "<cmd>wincmd j<cr>";
       options.desc = "Go to Down window";
     }

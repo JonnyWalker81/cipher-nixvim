@@ -1,6 +1,8 @@
 { config, lib, ... }:
 {
   plugins = {
+    sqlite-lua.enable = true;
+    
     yanky = {
       enable = true;
 
