@@ -1,7 +1,7 @@
 {
   # Import all your configuration modules here
   imports = [
-    ./fix-haskell-preview-crash-final.nix  # Final fix - disable preview for Haskell files
+    ./disable-all-haskell.nix  # Disable Haskell support to prevent crashes
     ./lazy.nix
     ./settings.nix
     ./bufferline.nix
