@@ -3,6 +3,7 @@
   imports = [
     ./manix.nix
     ./undo.nix
+    ./fzf-lua.nix
   ];
 
   plugins = {
