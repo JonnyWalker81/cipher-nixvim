@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   plugins = {
     copilot-lua = {
@@ -11,6 +11,14 @@
 
     copilot-chat = {
       inherit (config.plugins.copilot-lua) enable;
+      package = pkgs.vimPlugins.CopilotChat-nvim.overrideAttrs (oldAttrs: {
+        doCheck = false;
+      });
+      settings = {
+        integrations = {
+          fzflua = config.plugins.fzf-lua.enable;
+        };
+      };
     };
 
     # which-key.settings.spec = [
