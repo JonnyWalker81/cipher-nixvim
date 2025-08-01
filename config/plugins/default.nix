@@ -60,7 +60,7 @@
     ./lang/json.nix
     ./lang/nix.nix
     ./lang/ocaml.nix
-    ./lang/rust.nix
+    ./lang/rust-no-test.nix
     ./lang/shell.nix
     ./lang/terraform.nix
     ./lang/typescript.nix
