@@ -1,6 +1,8 @@
 {
   plugins.lspkind = {
-    enable = true;
+    # Disabled because blink-cmp is being used instead of nvim-cmp
+    # and lspkind conflicts when CMP is partially enabled (e.g. cmp-calc)
+    enable = false;
 
     # CMP integration disabled since cmp plugin is disabled
     # cmp.menu = {
