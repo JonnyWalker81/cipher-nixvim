@@ -12,7 +12,7 @@
     rustaceanvim.enable = false;
     
     # Use basic rust-tools as a temporary replacement
-    lsp.servers.rust-analyzer = {
+    lsp.servers.rust_analyzer = {
       enable = true;
       installRustc = true;
       installCargo = true;
