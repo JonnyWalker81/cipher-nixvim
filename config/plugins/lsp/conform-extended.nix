@@ -7,65 +7,117 @@
         # C/C++ formatting
         c = [ "clang-format" ];
         cpp = [ "clang-format" ];
-        
+
         # Web development
-        html = [[ "prettierd" "prettier" ]];
-        css = [[ "prettierd" "prettier" ]];
-        scss = [[ "prettierd" "prettier" ]];
-        less = [[ "prettierd" "prettier" ]];
-        
+        html = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+        css = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+        scss = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+        less = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+
         # JavaScript/TypeScript (extends existing)
-        javascript = [[ "prettierd" "prettier" "eslint_d" ]];
-        javascriptreact = [[ "prettierd" "prettier" "eslint_d" ]];
-        typescript = [[ "prettierd" "prettier" "eslint_d" ]];
-        typescriptreact = [[ "prettierd" "prettier" "eslint_d" ]];
-        vue = [[ "prettierd" "prettier" ]];
-        
+        javascript = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "eslint_d";
+          stop_after_first = true;
+        };
+        javascriptreact = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "eslint_d";
+          stop_after_first = true;
+        };
+        typescript = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "eslint_d";
+          stop_after_first = true;
+        };
+        typescriptreact = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "eslint_d";
+          stop_after_first = true;
+        };
+        vue = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+
         # Python
-        python = [[ "ruff_format" "black" ]];
-        
+        python = {
+          __unkeyed-1 = "ruff_format";
+          __unkeyed-2 = "black";
+          stop_after_first = true;
+        };
+
         # Ruby
         ruby = [ "rubocop" ];
-        
+
         # PHP
         php = [ "php_cs_fixer" ];
-        
+
         # Lua
         lua = [ "stylua" ];
-        
+
         # Markdown
-        markdown = [[ "prettierd" "prettier" ]];
-        
+        markdown = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+
         # XML
         xml = [ "xmlformat" ];
-        
+
         # Java
         java = [ "google-java-format" ];
-        
+
         # Kotlin
         kotlin = [ "ktlint" ];
-        
+
         # Swift
         swift = [ "swiftformat" ];
-        
+
         # Scala
         scala = [ "scalafmt" ];
-        
+
         # SQL
         sql = [ "sql_formatter" ];
-        
+
         # Docker
         dockerfile = [ "dockerfile-language-server" ];
-        
+
         # TOML
         toml = [ "taplo" ];
-        
+
         # Protobuf
         proto = [ "buf" ];
-        
+
         # GraphQL
-        graphql = [[ "prettierd" "prettier" ]];
-        
+        graphql = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          stop_after_first = true;
+        };
+
         # Jsonnet
         jsonnet = [ "jsonnetfmt" ];
       };

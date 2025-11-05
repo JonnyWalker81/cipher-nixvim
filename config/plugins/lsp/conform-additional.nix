@@ -9,42 +9,90 @@
       cpp = [ "clang-format" ];
       h = [ "clang-format" ];
       hpp = [ "clang-format" ];
-      
+
       # Web development (not conflicting with typescript.nix)
-      html = [[ "prettierd" "prettier" ]];
+      html = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
       xml = [ "xmlformat" ];
-      css = [[ "prettierd" "prettier" ]];
-      scss = [[ "prettierd" "prettier" ]];
-      less = [[ "prettierd" "prettier" ]];
-      
+      css = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      scss = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      less = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+
       # Python
-      python = [[ "ruff_format" "black" ]];
-      
+      python = {
+        __unkeyed-1 = "ruff_format";
+        __unkeyed-2 = "black";
+        stop_after_first = true;
+      };
+
       # Lua
       lua = [ "stylua" ];
-      
+
       # Markdown
-      markdown = [[ "prettierd" "prettier" ]];
-      
+      markdown = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+
       # Config files
       toml = [ "taplo" ];
-      jsonc = [[ "prettierd" "prettier" ]];
-      
+      jsonc = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+
       # SQL
       sql = [ "sql_formatter" ];
-      
+
       # Docker
       dockerfile = [ "dockerfile-language-server" ];
-      
+
       # Make
       make = [ "trim_whitespace" ];
       cmake = [ "cmake_format" ];
-      
+
       # Enhance JavaScript/TypeScript formatters (override typescript.nix)
-      javascript = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
-      javascriptreact = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
-      typescript = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
-      typescriptreact = lib.mkForce [[ "eslint_d" "prettierd" "prettier" ]];
+      javascript = lib.mkForce {
+        __unkeyed-1 = "eslint_d";
+        __unkeyed-2 = "prettierd";
+        __unkeyed-3 = "prettier";
+        stop_after_first = true;
+      };
+      javascriptreact = lib.mkForce {
+        __unkeyed-1 = "eslint_d";
+        __unkeyed-2 = "prettierd";
+        __unkeyed-3 = "prettier";
+        stop_after_first = true;
+      };
+      typescript = lib.mkForce {
+        __unkeyed-1 = "eslint_d";
+        __unkeyed-2 = "prettierd";
+        __unkeyed-3 = "prettier";
+        stop_after_first = true;
+      };
+      typescriptreact = lib.mkForce {
+        __unkeyed-1 = "eslint_d";
+        __unkeyed-2 = "prettierd";
+        __unkeyed-3 = "prettier";
+        stop_after_first = true;
+      };
     };
     
     # Additional formatter configurations
