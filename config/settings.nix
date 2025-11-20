@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   config = {
     extraConfigLuaPre = ''
@@ -10,11 +11,15 @@
     # feature that enhances the way Neovim loads and executes Lua modules,
     # offering improved performance and flexibility.
     luaLoader.enable = true;
-    
 
+
+    # Platform-conditional clipboard configuration
     clipboard = {
       register = "unnamedplus";
-      providers.wl-copy.enable = true;
+      providers = {
+        wl-copy.enable = pkgs.stdenv.isLinux;  # Linux only (Wayland)
+        xclip.enable = pkgs.stdenv.isLinux;    # Linux fallback (X11)
+      };
     };
 
     opts = {

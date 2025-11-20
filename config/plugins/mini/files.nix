@@ -68,8 +68,24 @@ in
              local path = curr_entry.path
              -- Escape the path for shell command
              local escaped_path = vim.fn.fnameescape(path)
-             -- Build the osascript command to copy the file or directory to the clipboard
-             local cmd = string.format([[cat %s | wl-copy ]], escaped_path)
+
+             -- Platform-conditional clipboard command
+             local cmd
+             if vim.fn.has("mac") == 1 then
+               -- macOS: use pbcopy
+               cmd = string.format([[cat %s | pbcopy]], escaped_path)
+             else
+               -- Linux: use wl-copy (Wayland) or xclip (X11)
+               if vim.fn.executable("wl-copy") == 1 then
+                 cmd = string.format([[cat %s | wl-copy]], escaped_path)
+               elseif vim.fn.executable("xclip") == 1 then
+                 cmd = string.format([[cat %s | xclip -selection clipboard]], escaped_path)
+               else
+                 vim.notify("No clipboard tool found (wl-copy/xclip/pbcopy)", vim.log.levels.ERROR)
+                 return
+               end
+             end
+
              local result = vim.fn.system(cmd)
              if vim.v.shell_error ~= 0 then
                vim.notify("Copy failed: " .. result, vim.log.levels.ERROR)
