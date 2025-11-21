@@ -13,10 +13,10 @@
             '';
           };
         };
-        # Highlight word under cursor
-        cursorword = {
-          delay = 0;
-        };
+        # Disabled for performance - use cursorline instead
+        # cursorword = {
+        #   delay = 0;
+        # };
 
         snippets = {
           snippets = {

@@ -39,7 +39,7 @@
       settings = {
         highlight_definitions = {
           enable = true;
-          clear_on_cursor_move = true;
+          clear_on_cursor_move = false; # Disabled for performance
         };
         smart_rename.enable = true;
         navigation.enable = true;
