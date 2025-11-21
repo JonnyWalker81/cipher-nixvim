@@ -44,6 +44,7 @@
     ./editor/spider.nix
     ./editor/yanky.nix
     ./editor/wordmotion.nix
+    ./editor/overseer.nix
 
     ./mini
 
