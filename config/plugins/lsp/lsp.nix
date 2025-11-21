@@ -6,7 +6,7 @@
   plugins = {
     lsp = {
       enable = true;
-      inlayHints = true;
+      inlayHints = false; # Disabled for performance - enable per-buffer with :lua vim.lsp.inlay_hint.enable(true)
       capabilities = ''
         capabilities = vim.tbl_deep_extend(
           "force",
@@ -49,7 +49,7 @@
     lint.enable = true;
 
     lsp-signature.enable = true;
-    lsp-lines.enable = true;
+    lsp-lines.enable = false; # Disabled for performance - uses virtual lines which redraw on cursor move
 
     lsp-format.enable = false;
 

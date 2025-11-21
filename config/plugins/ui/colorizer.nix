@@ -40,7 +40,7 @@
         tailwind = true;
         mode = "virtualtext";
         virtualtext = "■";
-        always_update = true;
+        always_update = false; # Disabled for performance
       };
     };
   };

@@ -100,15 +100,8 @@
             vim.opt.foldlevelstart = 99
             vim.opt.foldenable = true
             
-            -- Enable inlay hints globally (Neovim 0.10+)
-            vim.api.nvim_create_autocmd("LspAttach", {
-              callback = function(args)
-                local client = vim.lsp.get_client_by_id(args.data.client_id)
-                if client and client.server_capabilities.inlayHintProvider then
-                  vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-                end
-              end,
-            })
+            -- Inlay hints disabled for performance
+            -- Enable per-buffer with: vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
               -- Neovide
             if g.neovide then
               -- Neovide options
@@ -138,7 +131,8 @@
                        vim.highlight.on_yank()
                    end,
              })
-      require('tiny-inline-diagnostic').setup()
+      -- tiny-inline-diagnostic disabled for performance
+      -- require('tiny-inline-diagnostic').setup()
       vim.diagnostic.config({ virtual_text = false })
     '';
   };
