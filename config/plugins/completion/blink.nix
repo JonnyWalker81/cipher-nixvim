@@ -25,7 +25,7 @@
         settings = {
           completion = {
             accept.auto_brackets.enabled = true;
-            ghost_text.enabled = true;
+            ghost_text.enabled = false; # Disabled for performance
             documentation = {
               auto_show = true;
               window.border = "rounded";

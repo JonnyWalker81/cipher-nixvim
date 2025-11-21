@@ -38,8 +38,8 @@
 
       settings = {
         highlight_definitions = {
-          enable = true;
-          clear_on_cursor_move = false; # Disabled for performance
+          enable = false; # Disabled for performance - highlights symbols on cursor move
+          clear_on_cursor_move = false;
         };
         smart_rename.enable = true;
         navigation.enable = true;

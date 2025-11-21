@@ -35,11 +35,12 @@
       # package = self.packages.${system}.snacks-nvim;
 
       settings = {
-        animate.enabled = true;
+        # Performance: disabled cursor-tracking features
+        animate.enabled = false;  # Cursor/scroll animation
         image.enabled = true;
-        indent.enabled = true;
-        scroll.enabled = true;
-        scope.enabled = true;
+        indent.enabled = false;   # Indent guides update on cursor move
+        scroll.enabled = false;   # Smooth scroll fires on every j/k
+        scope.enabled = false;    # Scope tracking on cursor position
         statuscolumn = {
           enabled = true;
 
