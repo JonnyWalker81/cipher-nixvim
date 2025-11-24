@@ -14,8 +14,7 @@
         "o"
       ];
       key = "s";
-      action = "function() require(\"flash\").jump() end";
-      lua = true;
+      action.__raw = "function() require(\"flash\").jump() end";
       options = {
         silent = true;
         desc = "Flash";
@@ -29,8 +28,7 @@
         "o"
       ];
       key = "S";
-      action = "function() require(\"flash\").treesitter() end";
-      lua = true;
+      action.__raw = "function() require(\"flash\").treesitter() end";
       options = {
         silent = true;
         desc = "Flash Treesitter";
@@ -40,9 +38,7 @@
     {
       mode = "o";
       key = "r";
-      action = "function() require(\"flash\").remote() end";
-
-      lua = true;
+      action.__raw = "function() require(\"flash\").remote() end";
       options = {
         silent = true;
         desc = "Flash Remote";
@@ -55,9 +51,7 @@
         "x"
       ];
       key = "R";
-      action = "function() require(\"flash\").treesitter_search() end";
-
-      lua = true;
+      action.__raw = "function() require(\"flash\").treesitter_search() end";
       options = {
         silent = true;
         desc = "Treesitter Search";
@@ -67,9 +61,7 @@
     {
       mode = "c";
       key = "<c-s>";
-      action = "function() require(\"flash\").toggle() end";
-
-      lua = true;
+      action.__raw = "function() require(\"flash\").toggle() end";
       options = {
         silent = true;
         desc = "Toggle Flash Search";

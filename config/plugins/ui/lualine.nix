@@ -1,7 +1,8 @@
-{ icons, ... }:
+{ icons, pkgs, ... }:
 {
   plugins.lualine = {
     enable = true;
+    package = pkgs.vimPlugins.lualine-nvim;
     settings = {
       options = {
         always_divide_middle = true;

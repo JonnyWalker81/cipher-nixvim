@@ -34,6 +34,22 @@
       let
         overlays = [
           # inputs.neovim-nightly-overlay.overlays.default
+          # Fix lualine luarocks hash mismatch by using git source directly
+          (final: prev: {
+            vimPlugins = prev.vimPlugins // {
+              lualine-nvim = prev.vimUtils.buildVimPlugin {
+                pname = "lualine.nvim";
+                version = "2024-08-12";
+                src = prev.fetchFromGitHub {
+                  owner = "nvim-lualine";
+                  repo = "lualine.nvim";
+                  rev = "0a5a66803c7407767b799067986b4dc3036e1983";
+                  sha256 = "sha256-WcH2dWdRDgMkwBQhcgT+Z/ArMdm+VbRhmQftx4t2kNI=";
+                };
+                meta.homepage = "https://github.com/nvim-lualine/lualine.nvim/";
+              };
+            };
+          })
         ];
         nixvimLib = nixvim.lib.${system};
         pkgs = import nixpkgs {
@@ -43,7 +59,6 @@
         nixvim' = nixvim.legacyPackages.${system};
         nixvimModule = {
           inherit pkgs; # or alternatively, set `pkgs`
-          inherit system;
           module = import ./config; # import the module directly
           # You can use `extraSpecialArgs` to pass additional arguments to your module files
           extraSpecialArgs = {
