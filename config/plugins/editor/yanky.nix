@@ -26,11 +26,14 @@
             {
               __unkeyed-1 = "p";
               __unkeyed-2 = "<Plug>(YankyPutAfter)";
-              mode = [
-                "n"
-                "x"
-              ];
+              mode = [ "n" ];
               desc = "Put yanked text after cursor";
+            }
+            {
+              __unkeyed-1 = "p";
+              __unkeyed-2 = "\"_dP";
+              mode = [ "x" ];
+              desc = "Put yanked text (preserve register)";
             }
             {
               __unkeyed-1 = "P";
@@ -132,6 +135,9 @@
           cancel_event = "update";
           ignore_registers = [ "_" ];
           update_register_on_cycle = false;
+        };
+        preserve_cursor_position = {
+          enabled = true;
         };
       };
     };
