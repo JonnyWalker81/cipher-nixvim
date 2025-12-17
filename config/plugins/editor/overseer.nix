@@ -37,8 +37,7 @@
     overseer.register_template({
       name = "go test -run (filtered)",
       params = {
-        {
-          name = "pattern",
+        pattern = {
           type = "string",
           desc = "Test name pattern for -run flag",
           default = "",
