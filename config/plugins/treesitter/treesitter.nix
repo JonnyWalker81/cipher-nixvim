@@ -3,7 +3,7 @@
   plugins = {
     treesitter = {
       enable = true;
-      folding = true;
+      folding.enable = true;
 
       settings = {
         highlight = {
@@ -33,18 +33,19 @@
       };
     };
 
-    treesitter-refactor = {
-      inherit (config.plugins.treesitter) enable;
-
-      settings = {
-        highlight_definitions = {
-          enable = false; # Disabled for performance - highlights symbols on cursor move
-          clear_on_cursor_move = false;
-        };
-        smart_rename.enable = true;
-        navigation.enable = true;
-      };
-    };
+    # Disabled: nvim-treesitter-refactor is incompatible with nvim-treesitter 1.0+
+    # It uses the old nvim-treesitter.query API which no longer exists
+    # treesitter-refactor = {
+    #   inherit (config.plugins.treesitter) enable;
+    #   settings = {
+    #     highlight_definitions = {
+    #       enable = false;
+    #       clear_on_cursor_move = false;
+    #     };
+    #     smart_rename.enable = true;
+    #     navigation.enable = true;
+    #   };
+    # };
   };
 
   keymaps = lib.mkIf config.plugins.treesitter-context.enable [

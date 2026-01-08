@@ -71,19 +71,9 @@
       end
     })
     
-    -- Remove Haskell from treesitter if it somehow gets loaded
-    local has_ts, ts_configs = pcall(require, "nvim-treesitter.configs")
-    if has_ts then
-      local ts_parsers = require("nvim-treesitter.parsers")
-      -- Override the has_parser function for Haskell
-      local original_has_parser = ts_parsers.has_parser
-      ts_parsers.has_parser = function(lang)
-        if lang == "haskell" then
-          return false
-        end
-        return original_has_parser(lang)
-      end
-    end
+    -- Disable Haskell treesitter using the built-in vim.treesitter API
+    -- This prevents any treesitter features from activating for Haskell
+    vim.treesitter.language.register("text", "haskell")
     
     -- Create safe command to view Haskell files
     vim.api.nvim_create_user_command("SafeHaskell", function(opts)
