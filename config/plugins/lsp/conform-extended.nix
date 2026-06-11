@@ -183,7 +183,7 @@
         };
         
         sql_formatter = {
-          command = "${pkgs.nodePackages.sql-formatter}/bin/sql-formatter";
+          command = "${pkgs.sql-formatter}/bin/sql-formatter";
         };
         
         taplo = {
@@ -215,7 +215,7 @@
     black
     
     # Web
-    nodePackages.prettier
+    prettier
     prettierd
     
     # Others

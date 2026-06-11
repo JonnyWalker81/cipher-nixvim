@@ -130,7 +130,7 @@
         };
         
         sql_formatter = {
-          command = "${pkgs.nodePackages.sql-formatter}/bin/sql-formatter";
+          command = "${pkgs.sql-formatter}/bin/sql-formatter";
           args = [ "--language" "postgresql" ];
           stdin = true;
         };
@@ -148,7 +148,7 @@
         };
         
         prettier = {
-          command = "${pkgs.nodePackages.prettier}/bin/prettier";
+          command = "${pkgs.prettier}/bin/prettier";
           args = [ "--stdin-filepath" "$FILENAME" ];
           stdin = true;
         };
@@ -172,7 +172,7 @@
     black
     
     # Web
-    nodePackages.prettier
+    prettier
     prettierd
     
     # Others
@@ -180,6 +180,6 @@
     xmlformat
     taplo
     cmake-format
-    nodePackages.sql-formatter
+    sql-formatter
   ];
 }
