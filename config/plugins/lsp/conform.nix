@@ -42,6 +42,8 @@
           "trim_newlines"
         ];
 
+        sql = [ "sql_formatter" ];
+
         # html = {
         #   __unkeyed-1 = "prettierd";
         #   __unkeyed-2 = "prettier";
@@ -54,6 +56,15 @@
         #   __unkeyed-2 = "prettier";
         #   stop_after_first = true;
         # };
+      };
+      formatters = {
+        sql_formatter = {
+          command = lib.getExe pkgs.sql-formatter;
+          prepend_args = [
+            "--language"
+            "postgresql"
+          ];
+        };
       };
       # formatters = {
       #   _ = {
@@ -68,6 +79,32 @@
     };
   };
 
+  # Treat Go raw strings that start with a SQL keyword as embedded SQL so
+  # conform's "injected" formatter (and treesitter highlighting) can handle them.
+  extraFiles."after/queries/go/injections.scm".text =
+    let
+      sqlKeywords = [
+        "WITH"
+        "SELECT"
+        "INSERT"
+        "UPDATE"
+        "DELETE"
+        "CREATE"
+        "ALTER"
+        "DROP"
+      ];
+      mkPattern = kw: ''
+        ((raw_string_literal_content) @injection.content
+          (#lua-match? @injection.content "^%s*${kw}%s")
+          (#set! injection.language "sql"))
+      '';
+    in
+    ''
+      ;; extends
+
+      ${lib.concatMapStringsSep "\n" mkPattern sqlKeywords}
+    '';
+
   keymaps = [
     {
       mode = [
@@ -79,6 +116,22 @@
       options = {
         silent = true;
         desc = "Format";
+      };
+    }
+    {
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>cF";
+      action.__raw = ''
+        function()
+          require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "Format embedded code (SQL strings etc.)";
       };
     }
   ];
