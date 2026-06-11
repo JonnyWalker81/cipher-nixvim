@@ -192,19 +192,23 @@
       require("conform").format({ formatters = { "injected" }, timeout_ms = 5000, async = false })
 
       if is_go then
-        -- Re-indent each formatted string purely with tabs, one level deeper
-        -- than the line that opens the string (ranges re-collected because
-        -- formatting changes line counts).
-        for _, r in ipairs(go_injected_strings(bufnr)) do
+        -- Re-indent each formatted string purely with tabs: the first SQL
+        -- line is joined onto the opening-backtick line, the remaining lines
+        -- are indented relative to it. Ranges are re-collected because
+        -- formatting changes line counts, and processed bottom-up because
+        -- joining shifts the rows of later regions.
+        local regions = go_injected_strings(bufnr)
+        table.sort(regions, function(a, b) return a.open > b.open end)
+        for _, r in ipairs(regions) do
           local opening = vim.api.nvim_buf_get_lines(bufnr, r.open, r.open + 1, false)[1] or ""
           local base = opening:match("^\t*") or ""
           local lines = vim.api.nvim_buf_get_lines(bufnr, r.first, r.last + 1, false)
-          for i, l in ipairs(lines) do
-            if l ~= "" then
-              lines[i] = base .. l
-            end
+          local joined = { opening .. (lines[1] or "") }
+          for i = 2, #lines do
+            local l = lines[i]
+            joined[#joined + 1] = (l ~= "" and base .. l) or l
           end
-          vim.api.nvim_buf_set_lines(bufnr, r.first, r.last + 1, false, lines)
+          vim.api.nvim_buf_set_lines(bufnr, r.open, r.last + 1, false, joined)
         end
       end
     end
