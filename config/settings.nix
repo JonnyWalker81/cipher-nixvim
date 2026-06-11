@@ -41,6 +41,9 @@
       smartindent = true;
       wrap = true;
 
+      # Whitespace display symbols, used when 'list' is toggled on (<leader>uW)
+      listchars = "tab:» ,trail:·,nbsp:␣,extends:›,precedes:‹";
+
       # Smart indent on word wrap
       breakindent = true;
 

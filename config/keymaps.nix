@@ -114,6 +114,16 @@
       };
     }
 
+    {
+      mode = "n";
+      key = "<leader>uW";
+      action = "<cmd>set list!<cr>";
+      options = {
+        silent = true;
+        desc = "Toggle Whitespace Display";
+      };
+    }
+
     # Move Lines
     {
       mode = "n";
