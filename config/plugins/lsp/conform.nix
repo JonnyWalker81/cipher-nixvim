@@ -160,6 +160,23 @@
       local is_go = vim.bo[bufnr].filetype == "go"
 
       if is_go then
+        -- Normalize strings whose content starts right after the opening
+        -- backtick (`INSERT INTO ...) to the canonical shape with the SQL on
+        -- its own line, so the indent passes below see every content line.
+        -- Iterate bottom-up: inserting a newline shifts later rows.
+        local glued = {}
+        for _, r in ipairs(go_injected_strings(bufnr)) do
+          local line = vim.api.nvim_buf_get_lines(bufnr, r.open, r.open + 1, false)[1] or ""
+          local tick = line:find("`")
+          if tick and line:sub(tick + 1):match("%S") then
+            table.insert(glued, { row = r.open, col = tick })
+          end
+        end
+        table.sort(glued, function(a, b) return a.row > b.row end)
+        for _, g in ipairs(glued) do
+          vim.api.nvim_buf_set_text(bufnr, g.row, g.col, g.row, g.col, { "", "" })
+        end
+
         -- Dedent the string contents so conform has no whitespace prefix to
         -- restore afterwards. Leading whitespace is non-semantic in the
         -- injected languages we format; the formatter rebuilds the structure.
