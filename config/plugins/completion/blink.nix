@@ -73,9 +73,6 @@
           };
           fuzzy = {
             implementation = "rust";
-            prebuilt_binaries = {
-              download = false;
-            };
           };
           appearance = {
             use_nvim_cmp_as_default = true;
