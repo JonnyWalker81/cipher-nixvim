@@ -20,7 +20,6 @@
     {
       blink-cmp = {
         enable = true;
-        package = inputs.blink-cmp.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         settings = {
           completion = {
