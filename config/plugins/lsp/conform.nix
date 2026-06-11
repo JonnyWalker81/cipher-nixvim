@@ -63,6 +63,8 @@
           prepend_args = [
             "--language"
             "postgresql"
+            "--config"
+            (builtins.toJSON { useTabs = true; })
           ];
         };
       };
