@@ -1,22 +1,10 @@
 { config, lib, ... }:
 {
   # Native LSP UI configuration to replace lspsaga
+  # vim.lsp.with() was removed in Neovim 0.12; hover/signature-help float
+  # styling is now passed directly to vim.lsp.buf.hover()/signature_help()
+  # at the call sites (see the K keymap below).
   extraConfigLua = ''
-    -- Hover handler with border
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      vim.lsp.handlers.hover, {
-        border = "rounded",
-        max_width = 80,
-      }
-    )
-
-    -- Signature help with border
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-      vim.lsp.handlers.signature_help, {
-        border = "rounded",
-      }
-    )
-
     -- Diagnostic float with border
     vim.diagnostic.config({
       float = {
@@ -189,7 +177,7 @@
         function()
           local winid = require("ufo").peekFoldedLinesUnderCursor()
           if not winid then
-            vim.lsp.buf.hover()
+            vim.lsp.buf.hover({ border = "rounded", max_width = 80 })
           end
         end
       '';
