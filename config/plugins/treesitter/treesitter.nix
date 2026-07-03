@@ -9,12 +9,6 @@
         highlight = {
           additional_vim_regex_highlighting = false; # Disable for performance
           enable = true;
-          disable = # Lua
-            ''
-              function(lang, bufnr)
-                return vim.api.nvim_buf_line_count(bufnr) > 10000
-              end
-            '';
         };
 
         incremental_selection.enable = true;
@@ -47,6 +41,24 @@
     #   };
     # };
   };
+
+  # Perf guard: don't treesitter-highlight very large buffers. The legacy
+  # function form of settings.highlight.disable is ignored by nvim-treesitter
+  # 1.0+ (main branch), so this is done with an autocmd instead. Scheduled so
+  # it runs after nixvim's own FileType autocmd has started highlighting.
+  extraConfigLua = ''
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        if vim.api.nvim_buf_line_count(args.buf) > 10000 then
+          vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(args.buf) then
+              pcall(vim.treesitter.stop, args.buf)
+            end
+          end)
+        end
+      end,
+    })
+  '';
 
   keymaps = lib.mkIf config.plugins.treesitter-context.enable [
     {

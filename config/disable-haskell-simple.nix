@@ -1,17 +1,10 @@
 # Simple fix to disable Haskell support and prevent crashes
 { lib, ... }:
 {
-  # Disable Haskell in treesitter by modifying the disable function
-  plugins.treesitter.settings.highlight.disable = lib.mkForce ''
-    function(lang, bufnr)
-      -- Always disable for Haskell to prevent crashes
-      if lang == "haskell" then
-        return true
-      end
-      -- Keep existing logic for large files
-      return vim.api.nvim_buf_line_count(bufnr) > 10000
-    end
-  '';
+  # Disable Haskell in treesitter (nvim-treesitter 1.0+ native option; the
+  # legacy settings.highlight.disable function is ignored on the main branch).
+  # Large-file handling lives in plugins/treesitter/treesitter.nix.
+  plugins.treesitter.highlight.disable = [ "haskell" ];
 
   # Force Haskell files to open as text
   extraConfigLua = ''
