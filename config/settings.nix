@@ -17,8 +17,8 @@
     clipboard = {
       register = "unnamedplus";
       providers = {
-        wl-copy.enable = pkgs.stdenv.isLinux;  # Linux only (Wayland)
-        xclip.enable = pkgs.stdenv.isLinux;    # Linux fallback (X11)
+        wl-copy.enable = pkgs.stdenv.hostPlatform.isLinux;  # Linux only (Wayland)
+        xclip.enable = pkgs.stdenv.hostPlatform.isLinux;    # Linux fallback (X11)
       };
     };
 

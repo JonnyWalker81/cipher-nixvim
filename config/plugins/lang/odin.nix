@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  plugins = lib.mkIf pkgs.stdenv.isLinux {
+  plugins = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     conform-nvim.settings = {
       formatters_by_ft = {
         odin = [ "odinfmt" ];
