@@ -46,6 +46,19 @@
               };
             };
           })
+          # hmts.nvim 1.3.0 still assumes treesitter predicate handlers get a single
+          # TSNode per capture. Neovim 0.12 dropped the `all` option from
+          # add_{predicate,directive}, so they now always get a list of nodes, and
+          # every .nix buffer errors out with "attempt to call method 'parent'".
+          (final: prev: {
+            vimPlugins = prev.vimPlugins // {
+              hmts-nvim = prev.vimPlugins.hmts-nvim.overrideAttrs (old: {
+                patches = (old.patches or [ ]) ++ [
+                  ./patches/hmts-nvim-neovim-0.12-node-lists.patch
+                ];
+              });
+            };
+          })
         ];
         nixvimLib = nixvim.lib.${system};
         pkgs = import nixpkgs {

@@ -1,0 +1,53 @@
+--- a/plugin/hmts.lua
++++ b/plugin/hmts.lua
+@@ -60,6 +60,18 @@
+ 	return is_match
+ end
+ 
++--- Returns the node captured under the given capture argument. Neovim 0.12 dropped the
++--- `all` option from add_{predicate,directive}, so handlers now always receive a list of
++--- nodes per capture id; older versions handed over a single node.
++---@param captured TSNode|TSNode[]|nil
++---@return TSNode|nil
++local function capture_node(captured)
++	if type(captured) == "table" then
++		return captured[1]
++	end
++	return captured
++end
++
+ --- Returns the text of the given path node.
+ ---@param node TSNode
+ ---@param bufnr integer
+@@ -124,7 +136,8 @@
+ ---@param predicate string[]
+ ---@return boolean
+ local function hmts_path_handler(match, _, bufnr, predicate)
+-	local node = match[predicate[2]]:parent()
++	local capture = capture_node(match[predicate[2]])
++	local node = capture and capture:parent()
+ 	local target_path = vim.list_slice(predicate, 3, nil)
+ 
+ 	while node do
+@@ -152,7 +165,12 @@
+ ---@param predicate string[]
+ ---@param metadata table<string, string>
+ local function hmts_inject_handler(match, _, bufnr, predicate, metadata)
+-	local path_node = match[predicate[2]]
++	local path_node = capture_node(match[predicate[2]])
++
++	if path_node == nil then
++		return
++	end
++
+ 	local filename = find_filename_in_parent_node(path_node, bufnr)
+ 	local alias = vim.filetype.match({ filename = filename })
+ 
+@@ -164,6 +182,6 @@
+ 	metadata["injection.language"] = lang
+ end
+ 
+-local opts = vim.fn.has("nvim-0.10") == 1 and { force = true, all = false } or true
++local opts = vim.fn.has("nvim-0.10") == 1 and { force = true } or true
+ vim.treesitter.query.add_predicate("hmts-path?", hmts_path_handler, opts)
+ vim.treesitter.query.add_directive("hmts-inject!", hmts_inject_handler, opts)
